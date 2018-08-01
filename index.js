@@ -28,16 +28,9 @@ function getModules() {
   eslintMod.filename = eslintLoc;
   eslintMod.paths = Module._nodeModulePaths(path.dirname(eslintLoc));
 
-  try {
-    var escope = eslintMod.require("eslint-scope");
-    var Definition = eslintMod.require("eslint-scope/lib/definition").Definition;
-    var referencer = eslintMod.require("eslint-scope/lib/referencer");
-  } catch (err) {
-    escope  = eslintMod.require("escope");
-    Definition = eslintMod.require("escope/lib/definition").Definition;
-    referencer = eslintMod.require("escope/lib/referencer");
-  }
-
+  var escope  = eslintMod.require("escope");
+  var Definition = eslintMod.require("escope/lib/definition").Definition;
+  var referencer = eslintMod.require("escope/lib/referencer");
   var estraverse = eslintMod.require("estraverse");
 
   if (referencer.__esModule) referencer = referencer.default;
